@@ -17,5 +17,7 @@ make NUM=10000
 ```
 
 ## Prereqs ##
-- perl
+- [perl](http://www.perl.org/)
+- [seq](http://www.delorie.com/gnu/docs/textutils/coreutils_156.html)
+- [make](https://www.gnu.org/software/make/)
 - interest in college basketball
