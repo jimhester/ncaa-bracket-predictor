@@ -1,29 +1,12 @@
 #!/usr/bin/env perl
 use warnings;
 use strict;
-use autodie qw(:all);
 ###############################################################################
 # By Jim Hester
 # Created: 2014 Mar 19 08:38:59 AM
-# Last Modified: 2014 Mar 19 09:50:48 AM
+# Last Modified: 2014 Mar 19 11:10:30 AM
 # Title:sim_bracket.pl
-# Purpose:blah
-###############################################################################
-# Code to handle help menu and man page
-###############################################################################
-use Getopt::Long;
-use Pod::Usage;
-my %args = ();
-GetOptions(\%args, 'help|?', 'man') or pod2usage(2);
-pod2usage(2) if exists $args{help};
-pod2usage(-verbose => 2) if exists $args{man};
-pod2usage("$0: No files given.")  if ((@ARGV == 0) && (-t STDIN));
-###############################################################################
-# Automatically extract compressed files
-###############################################################################
-@ARGV = map { s/(.*\.gz)\s*$/pigz -dc < $1|/; s/(.*\.bz2)\s*$/pbzip2 -dc < $1|/;$_ } @ARGV;
-###############################################################################
-# sim_bracket.pl
+# Purpose:Simulate a NCAA bracket
 ###############################################################################
 
 my $bracket = shift;
@@ -86,42 +69,3 @@ sub choose_winner {
   }
   return $team2;
 }
-
-###############################################################################
-# Help Documentation
-###############################################################################
-
-=head1 NAME
-
-sim_bracket.pl - blah
-
-=head1 VERSION
-
-0.0.1
-
-=head1 USAGE
-
-Options:
-      -help
-      -man               for more info
-
-=head1 OPTIONS
-
-=over
-
-=item B<-help>
-
-Print a brief help message and exits.
-
-=item B<-man>
-
-Prints the manual page and exits.
-
-=back
-
-=head1 DESCRIPTION
-
-B<sim_bracket.pl> blah
-
-=cut
-
